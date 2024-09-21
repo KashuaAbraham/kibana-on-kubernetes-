@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kibana-deployment
+  labels:
+    app: kibana
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kibana
+  template:
+    metadata:
+      labels:
+        app: kibana
+    spec:
+      containers:
+      - name: kibana
+        image: docker.elastic.co/kibana/kibana:8.10.0 # Update to your desired version
+        ports:
+        - containerPort: 5601
+        env:
+        - name: SERVER_NAME
+          value: "kibana.local" # Optional
+        - name: ELASTICSEARCH_HOSTS
+          value: "" # Kibana won't connect to Elasticsearch
