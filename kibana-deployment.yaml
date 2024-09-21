@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: kibana
-        image: docker.elastic.co/kibana/kibana:8.10.0 # Update to your desired version
+        image: docker.elastic.co/kibana/kibana:8.15.1 # Update to your desired version
         ports:
         - containerPort: 5601
         env:
